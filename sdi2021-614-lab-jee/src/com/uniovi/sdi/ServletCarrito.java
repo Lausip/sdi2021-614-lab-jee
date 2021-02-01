@@ -30,14 +30,13 @@ public class ServletCarrito extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession	session=request.getSession();
 		HashMap<String,Integer>	carrito	=	
 				(HashMap<String,Integer>)	request.getSession().getAttribute("carrito");
-//					No	hay	carrito,	creamos	uno	y	lo	insertamos	en	sesión
+//				No	hay	carrito,	creamos	uno	y	lo	insertamos	en	sesión
 				if	(carrito	==	null)	{
 				carrito	=	new	HashMap<String,Integer>();
-								request.getSession().setAttribute("carrito",	carrito);
+				request.getSession().setAttribute("carrito",carrito);
 				}
 				String	producto	=	request.getParameter("producto");
 				if	(producto	!=	null){
