@@ -33,6 +33,10 @@ public class ServletCarrito extends HttpServlet {
 		HttpSession	session=request.getSession();
 		HashMap<String,Integer>	carrito	=	
 				(HashMap<String,Integer>)	request.getSession().getAttribute("carrito");
+//				Si pulsamos el eliminar
+				if (request.getParameter("eliminar")!=null) {
+			   String productoEliminar = request.getParameter("eliminar");	
+			   eliminarEnCarrito(carrito,productoEliminar );}
 //				No	hay	carrito,creamos	uno	y	lo	insertamos	en	sesión
 				if	(carrito	==	null)	{
 				carrito	=	new	HashMap<String,Integer>();
@@ -56,7 +60,14 @@ public class ServletCarrito extends HttpServlet {
 			carritoEnHTML+="<p>["+key+"], "+carrito.get(key)+" unidades</p>";
 		return carritoEnHTML;
 	}
-
+	private void eliminarEnCarrito(HashMap<String, Integer> carrito, String claveProducto) {
+		int numeroArticulos = (Integer) carrito.get(claveProducto).intValue();
+		if (numeroArticulos == 1) {
+			carrito.remove(claveProducto);
+		} else {
+			carrito.replace(claveProducto, numeroArticulos - 1);
+		}
+	}
 	private void insertarEnCarrito(HashMap<String, Integer> carrito, String claveProducto) {
 		if(carrito.get(claveProducto)==null)
 			carrito.put(claveProducto, new Integer(1));
