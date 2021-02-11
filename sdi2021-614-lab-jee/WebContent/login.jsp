@@ -19,7 +19,7 @@ String password=request.getParameter("password");
 if(nombre!=null && nombre.equals("admin")&&password!=null && password.equals("admin")){
 	//Credencial válido lo guardo en sesión
 	request.getSession().setAttribute("usuario","admin");
-	response.sendRedirect("admin.jsp");}
+	response.sendRedirect("index.jsp");}
 else{
 	//Credencial invalido,lo elimino de sesion(opcional)
 	request.getSession().setAttribute("usuario",null);
