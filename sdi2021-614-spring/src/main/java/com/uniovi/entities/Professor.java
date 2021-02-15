@@ -1,7 +1,13 @@
 package com.uniovi.entities;
 
-public class Professor {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class Professor {
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String dni;
 	private String nombre;
@@ -61,6 +67,6 @@ public class Professor {
 
 	@Override
 	public String toString() {
-		return "Profesor [id=" + id + ", dni=" + dni + ", nombre=" + nombre + ", categoria=" + categoria + "]";
+		return "Profesor [id=" + id + ", dni=" + dni + ", nombre=" + nombre + ", apellidos=" +apellido+", categoria=" + categoria + "]";
 	}
 }

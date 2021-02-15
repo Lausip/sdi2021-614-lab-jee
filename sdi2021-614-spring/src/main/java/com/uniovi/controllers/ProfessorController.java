@@ -46,6 +46,7 @@ public class ProfessorController {
 		profesorACambiar.setNombre(profesorCambios.getNombre());
 		profesorACambiar.setApellido(profesorCambios.getApellido());
 		profesorACambiar.setCategoria(profesorCambios.getCategoria());
+		professorService.addProfessor(profesorACambiar);
 		return "Edited";
 	}
 }
