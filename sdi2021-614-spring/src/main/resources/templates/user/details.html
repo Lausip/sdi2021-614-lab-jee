@@ -9,18 +9,18 @@
 
 
 	<div class="container">
-		<h2>Detalles del usuario</h2>
+		<h2 th:text="#{detallesUsuario.message}">Detalles del usuario</h2>
 		<div class="panel panel-default">
 			<div class="panel-heading">DNI</div>
 			<div class="panel-body" th:text="${user.dni}">123456789</div>
 		</div>
 		<div class="panel panel-default">
-			<div class="panel-heading">Nombre</div>
+			<div class="panel-heading" th:text="#{usuarioName.message}">Nombre</div>
 			<div class="panel-body" th:text="${user.name}">
-				Nombre</div>
+				Juan</div>
 		</div>
 		<div class="panel panel-default">
-			<div class="panel-heading">Apellidos</div>
+			<div class="panel-heading" th:text="#{usuarioApellidos.message}">Apellidos</div>
 			<div class="panel-body" th:text="${user.lastName}">Apellido1 Apellido2</div>
 		</div>
 	</div>
