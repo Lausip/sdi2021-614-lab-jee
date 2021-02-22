@@ -19,9 +19,13 @@ public class SignUpFormValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		User user = (User) target;
+		char ltrDNI = user.getDni().charAt(8);
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dni", "Error.empty");
-		if (user.getDni().length() < 5 || user.getDni().length() > 24) {
+		if (user.getDni().length() != 9 ) {
 			errors.rejectValue("dni", "Error.signup.dni.length");
+		}
+		if (!Character.isLetter(ltrDNI)) {
+			errors.rejectValue("dni", "Error.signup.dni.letter");
 		}
 		if (usersService.getUserByDni(user.getDni()) != null) {
 			errors.rejectValue("dni", "Error.signup.dni.duplicate");
