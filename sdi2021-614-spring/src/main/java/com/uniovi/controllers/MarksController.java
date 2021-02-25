@@ -31,11 +31,10 @@ public class MarksController {
 	@Autowired
 	private HttpSession httpSession;
 
-
 	@RequestMapping("/mark/list")
-	public String getList(Model model){
-	model.addAttribute("markList", marksService.getMarks() );
-	return "mark/list";
+	public String getList(Model model) {
+		model.addAttribute("markList", marksService.getMarks());
+		return "mark/list";
 	}
 
 	@RequestMapping(value = "/mark/add", method = RequestMethod.GET)
@@ -44,7 +43,7 @@ public class MarksController {
 		model.addAttribute("mark", new Mark());
 		return "mark/add";
 	}
-	
+
 	@RequestMapping(value = "/mark/add", method = RequestMethod.POST)
 	public String setMark(@Validated Mark mark, BindingResult result) {
 		addMarkValidator.validate(mark, result);
@@ -54,9 +53,20 @@ public class MarksController {
 
 		marksService.addMark(mark);
 		return "redirect:/mark/list";
-	
-}
 
+	}
+
+	@RequestMapping(value = "/mark/{id}/resend", method = RequestMethod.GET)
+	public String setResendTrue(Model model, @PathVariable Long id) {
+		marksService.setMarkResend(true, id);
+		return "redirect:/mark/list";
+	}
+
+	@RequestMapping(value = "/mark/{id}/noresend", method = RequestMethod.GET)
+	public String setResendFalse(Model model, @PathVariable Long id) {
+		marksService.setMarkResend(false, id);
+		return "redirect:/mark/list";
+	}
 
 	@RequestMapping("/mark/details/{id}")
 	public String getDetail(Model model, @PathVariable Long id) {
@@ -93,6 +103,5 @@ public class MarksController {
 		model.addAttribute("markList", marksService.getMarks());
 		return "mark/list :: tableMarks";
 	}
-
 
 }
