@@ -35,6 +35,16 @@
 								Usuario</a></li>
 						<li><a href="/user/list" th:text="#{verUsuarios.message}">Ver
 								Usuarios</a></li>
+					</ul>
+				</li>
+				<li id="users-menu" class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"> Gestión de Profesores<span
+						class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="/professor/add"
+							sec:authorize="hasRole('ROLE_ADMIN')">Agregar Profesor</a></li>
+						<li><a href="/professor/list">Ver Profesores</a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -74,5 +84,5 @@
 				</a></li>
 			</ul>
 		</div>
-		</div>
+	</div>
 </nav>
