@@ -31,7 +31,8 @@
  						/*]]>*/
 		</script>
 		<div class="table-responsive">
-			<table th:replace="fragments/tableMarksList"/>
+			<table th:replace="fragments/tableMarksList" th:fragment="tableMarks"
+				id="tableMarks"/>
 		</div>
 		<footer th:replace="fragments/pagination" />
 	</div>
