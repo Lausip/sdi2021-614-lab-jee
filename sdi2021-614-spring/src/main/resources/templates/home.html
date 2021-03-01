@@ -15,7 +15,8 @@
 
 		<p th:text="#{notas2.message}"></p>
 		<div class="table-responsive">
-		<table th:replace="fragments/tableMarksList"/>
+			<table th:replace="fragments/tableMarksList" th:fragment="tableMarks"
+				id="tableMarks"/>
 		</div>
 	</div>
 	<footer th:replace="fragments/footer" />
