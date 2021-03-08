@@ -42,6 +42,24 @@ public class PO_PrivateView extends PO_NavView {
 	public static void logout(WebDriver driver) {
 		clickOption(driver, "logout", "text", "Identifícate");
 	}
+	
+	public static void fillFormAddUser(WebDriver driver, String dniP, String nameP, String surnameP, String categoriaP) {
+		SeleniumUtils.esperarSegundos(driver, 5);		
+		WebElement dni = driver.findElement(By.name("dni"));
+		dni.clear();
+		dni.sendKeys(dniP);
+		WebElement name = driver.findElement(By.name("nombre"));
+		name.clear();
+		name.sendKeys(nameP);
+		WebElement surname = driver.findElement(By.name("apellido"));
+		surname.clear();
+		surname.sendKeys(surnameP);
+		WebElement categoria = driver.findElement(By.name("categoria"));
+		categoria.clear();
+		categoria.sendKeys(categoriaP);
+		By boton = By.className("btn");
+		driver.findElement(boton).click();
+	}
 
 
 

@@ -12,6 +12,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
 				<li><a href="/">Home</a></li>
+				
 				<li id="marks-menu" class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#" th:text="#{gestionNotas.message}">Gestión
 						de Notas<span class="caret"></span>
@@ -23,6 +24,7 @@
 						<li><a href="/mark/list" th:text="#{verNotas.message}">Ver
 								Notas</a></li>
 					</ul></li>
+					
 				<li id="users-menu" class="dropdown"
 					sec:authorize="hasRole('ROLE_ADMIN')"><a
 					class="dropdown-toggle" data-toggle="dropdown" href="#"
@@ -37,13 +39,14 @@
 								Usuarios</a></li>
 					</ul>
 				</li>
-				<li id="users-menu" class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"> Gestión de Profesores<span
+				
+					<li id="professor-menu" class="dropdown"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> Gestión de Profesores<span
 						class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="/professor/add"
-							sec:authorize="hasRole('ROLE_ADMIN')">Agregar Profesor</a></li>
+						<li><a href="/professor/add" sec:authorize="hasRole('ROLE_ADMIN')">Agregar
+								Profesor</a></li>
 						<li><a href="/professor/list">Ver Profesores</a></li>
 					</ul></li>
 			</ul>
